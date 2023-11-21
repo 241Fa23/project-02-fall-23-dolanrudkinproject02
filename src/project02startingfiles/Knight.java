@@ -8,6 +8,6 @@ package project02startingfiles;
  *
  * @author s566210
  */
-public class Knight {
+public class Knight extends Player{
     
 }

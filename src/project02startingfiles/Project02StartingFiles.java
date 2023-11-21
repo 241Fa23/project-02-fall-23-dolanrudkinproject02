@@ -9,7 +9,7 @@ import java.util.*;
  *
  * @author 
  */
-public class Project02StartingFiles extends Player{
+public class Project02StartingFiles {
 
     /**
      * @param args the command line arguments
@@ -40,9 +40,11 @@ public class Project02StartingFiles extends Player{
         else{
             System.out.println("No option was selected please try again.");
         }
-//        
+        
 //       While (health > 0){
-//            System.out.println("What would you like to do?");
-//       }
+//           System.out.println("What would you like to do?");
+//      }
     }
+
+     
 }

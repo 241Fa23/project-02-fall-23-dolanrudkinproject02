@@ -8,6 +8,6 @@ package project02startingfiles;
  *
  * @author s566210
  */
-public class Wizard {
+public class Wizard extends Player{
     
 }

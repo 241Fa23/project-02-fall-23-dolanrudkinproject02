@@ -24,6 +24,16 @@ public abstract class Player{
     public int getHealth(){
         return health;
     }
+        
+    public void setScore(int score){
+        this.score = score;
+    }
+    public int getScore(){
+        return score;
+    }
     
+    public abstract String getSpecialMove();
+    
+    public abstract void useSpecialMove();
     
 }
