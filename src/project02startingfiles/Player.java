@@ -10,8 +10,8 @@ package project02startingfiles;
  */
 // extends Wizard, Healer, Theif, Knight
 public abstract class Player{
-    private int health = 10;
-    private int score = 0;
+    private int health;
+    private int score;
     
     public Player(int health, int score){
         this.health = health;
@@ -34,6 +34,6 @@ public abstract class Player{
     
     public abstract String getSpecialMove();
     
-    public abstract void useSpecialMove();
+ //   public abstract void useSpecialMove();
     
 }
