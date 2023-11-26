@@ -80,7 +80,7 @@ public class Project02StartingFiles {
 
             switch (action) {
                 case 'r':
-                    //System.out.println(.toString());
+                    System.out.println(player.toString());
                     break;
                 case 'n':
                 case 's':
@@ -107,6 +107,16 @@ public class Project02StartingFiles {
         System.out.println("(w) Move 1 Space West ");
         System.out.println("(q) quit Game ");
         System.out.print(">> ");
+    }
+
+    private static void handleMove(Player player, char direction) {
+
+    }
+
+    private static void endGame(Player player) {
+        System.out.println("The game has come to an end! Your final stats:");
+        System.out.println(player.toString());
+        System.out.println("Thanks for playing!");
     }
 
 }
