@@ -89,7 +89,7 @@ public class Project02StartingFiles {
                     //handleMove(Player, action);
                     break;
                 case 'q':
-                    //endGame(player);
+                    //endGame();
                     return;
                 default:
                     System.out.println("Invalid choice. Please choose again.");
@@ -110,7 +110,65 @@ public class Project02StartingFiles {
     }
 
     private static void handleMove(Player player, char direction) {
+        Random random = new Random();
 
+        //80% chance of a benign scene, 20% chance of a attack
+        if (random.nextDouble() < 0.8) {
+            handleBenignScene(player);
+        } else {
+            handleAttack(player);
+        }
+    }
+
+    private static void handleBenignScene(Player player) {
+        Random random = new Random();
+        //Possible benign scenes
+        String[] scenes = {"Nothing here...", "Nice trees around here", "Interesting cottage there...", "Crossing a stream", "Cute Animals"};
+        int index = random.nextInt(scenes.length);
+
+        System.out.println("*******************");
+        System.out.println(scenes[index]);
+        System.out.println("*******************");
+
+        player.increasedScore(1);
+        System.out.println(player.toString());
+    }
+
+    private static void handleAttack(Player player) {
+        Random random = new Random();
+
+        //Possible foes
+        String[] foes = {"Zombie", "Bandit", "Wild Animal"};
+        int index = random.nextInt(foes.length);
+        String foe = foes[index];
+
+        System.out.println("Oh no! You are being attack by a " + foe + "!");
+
+        System.out.println("How would you like to handle this?");
+        System.out.println("(s) Special Move");
+        System.out.println("(r) Run anway");
+
+        char choice = new Scanner(System.in).next().charAt(0);
+
+        if (choice == 'r' && random.nextDouble() < 0.5) {
+            System.out.println("You successfuly run away! Score increased by 1.");
+        } else {
+            System.out.println("Prepare for battle! Press any letter then ENTER to continure...");
+            new Scanner(System.in).next(); //Wait for user input
+
+            //Simulate battle outcome
+            if (random.nextDouble() < 0.6) {
+                //SOmething like this to get class?
+                //System.out.println(player.getClass().getSimpleName(); + " uses " + player.getSpecialMove() + "!");
+                player.useSpecialMove();
+                //need to get the class again + " wins! Score increased by 2."
+                player.increasedScore(2);
+            } else {
+                System.out.println("You lose the battle! Health decreased by 1.");
+                player.decreaseHealth(1);
+            }
+        }
+        System.out.println(player.toString());
     }
 
     private static void endGame(Player player) {
