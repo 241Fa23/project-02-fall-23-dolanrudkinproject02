@@ -8,9 +8,10 @@ package project02startingfiles;
  *
  * @author s566210
  */
-public class Theif extends Player{
+public class Theif extends Player {
+
     private String specialMove;
-    
+
     public Theif(int health, int score, String specialMove) {
         super(health, score);
         this.specialMove = specialMove;
@@ -18,12 +19,16 @@ public class Theif extends Player{
 
     @Override
     public String getSpecialMove() {
-        return specialMove;
+        return "Sneak By!";
     }
-//
-//    @Override
-//    public void useSpecialMove() {
-//        //this is your area to make the special moves
-//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-//    }
+
+    @Override
+    public void useSpecialMove() {
+        System.out.println("The Thief sneaks right past them");
+    }
+
+    @Override
+    public String toString() {
+        return "Thief Status: Health: " + getHealth() + " Score: " + getScore() + "\nThe Thief's special move is '" + getSpecialMove() + "'";
+    }
 }

@@ -8,9 +8,10 @@ package project02startingfiles;
  *
  * @author s566210
  */
-public class Healer extends Player{
+public class Healer extends Player {
+
     private String specialMove;
-    
+
     public Healer(int health, int score, String specialMove) {
         super(health, score);
         this.specialMove = specialMove;
@@ -18,12 +19,16 @@ public class Healer extends Player{
 
     @Override
     public String getSpecialMove() {
-        return specialMove;
+        return "Use Sleeping Powder!";
     }
 
-//    @Override
-//    public void useSpecialMove() {
-//        //this is your area to make the special moves
-//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-//    }
+    @Override
+    public void useSpecialMove() {
+        System.out.println("The Healer uses sleeping powder to pacify the surroundings.");
+    }
+
+    @Override
+    public String toString() {
+        return "Healer Status: Health: " + getHealth() + " Score: " + getScore() + "\nThe Healers special move is '" + getSpecialMove() + "'";
+    }
 }

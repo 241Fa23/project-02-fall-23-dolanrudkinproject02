@@ -8,9 +8,10 @@ package project02startingfiles;
  *
  * @author s566210
  */
-public class Knight extends Player{
+public class Knight extends Player {
+
     private String specialMove;
-    
+
     public Knight(int health, int score, String specialMove) {
         super(health, score);
         this.specialMove = specialMove;
@@ -18,12 +19,16 @@ public class Knight extends Player{
 
     @Override
     public String getSpecialMove() {
-        return specialMove;
+        return "Slash with Sword!";
     }
 
-//    @Override
-//    public void useSpecialMove() {
-//        //this is your area to make the special moves
-//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-//    }
+    @Override
+    public void useSpecialMove() {
+        System.out.println("The Knight slashes with their sword!");
+    }
+
+    @Override
+    public String toString() {
+        return "Knight Status: Health: " + getHealth() + " Score: " + getScore() + "\nThe Knight's special move is '" + getSpecialMove() + "'";
+    }
 }

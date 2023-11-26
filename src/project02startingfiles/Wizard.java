@@ -8,9 +8,10 @@ package project02startingfiles;
  *
  * @author s566210
  */
-public class Wizard extends Player{
+public class Wizard extends Player {
+
     private String specialMove;
-    
+
     public Wizard(int health, int score, String specialMove) {
         super(health, score);
         this.specialMove = specialMove;
@@ -18,15 +19,16 @@ public class Wizard extends Player{
 
     @Override
     public String getSpecialMove() {
-        return specialMove;
+        return "Cast a Spell!";
     }
 
-//    @Override
-//    public void useSpecialMove() {
-//        //this is your area to make the special moves
-//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-//    }
+    @Override
+    public void useSpecialMove() {
+        System.out.println("The Wizard casts a powerful spell!");
+    }
 
-   
-    
+    @Override
+    public String toString() {
+        return "Wizard Status: Health: " + getHealth() + " Score: " + getScore() + "\nThe Wizard's special move is '" + getSpecialMove() + "'";
+    }
 }
