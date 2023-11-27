@@ -42,7 +42,7 @@ public class Project02StartingFiles {
             while (stats.get(0).getHealth() > 0) {
                 System.out.println("What would you like to do?");
                 displayMenu();
-                String action = input.nextLine();
+                menuActions();
             }
         } else if (character.equals("w")) {
             stats.add(new Wizard(10, 0, "Cast a Spell!"));
@@ -51,8 +51,11 @@ public class Project02StartingFiles {
             while (stats.get(0).getHealth() > 0) {
                 System.out.println("What would you like to do?");
                 displayMenu();
-                String action = input.nextLine();
+                menuActions();   
             }
+            
+           
+            
         } else if (character.equals("h")) {
             stats.add(new Healer(10, 0, "Use Sleeping Powder!"));
             System.out.println("Welcome, Healer!");
@@ -61,6 +64,7 @@ public class Project02StartingFiles {
                 System.out.println("What would you like to do?");
                 displayMenu();
                 String action = input.nextLine();
+                menuActions();
             }
         } else if (character.equals("t")) {
             stats.add(new Theif(10, 0, "Sneak By!"));
@@ -69,39 +73,15 @@ public class Project02StartingFiles {
             while (stats.get(0).getHealth() > 0) {
                 System.out.println("What would you like to do?");
                 displayMenu();
-                String action = input.nextLine();
+                menuActions();
             }
         } else {
             System.out.println("No option was selected please try again.");
         }
-        while (true) {
-            displayMenu();
-            char action = input.next().charAt(0);
-
-            switch (action) {
-                case 'r':
-                    System.out.println(stats.toString());
-                    break;
-                case 'n':
-                case 's':
-                case 'e':
-                case 'w':
-                    //handleMove(Player, action);
-                    break;
-                case 'q':
-                    System.out.println("The game has come to an end! Your final stats:");
-                    System.out.println(stats.toString());
-                    System.out.println("Thanks for playing!");
-                    break;
-                default:
-                    System.out.println("Invalid choice. Please choose again.");
-
-            }
-
-        }
+        
     }
 
-    private static void displayMenu(String action) {
+    private static void displayMenu() {
         System.out.println("(r) Status Report");
         System.out.println("(n) Move 1 Space North ");
         System.out.println("(s) Move 1 Space South ");
@@ -111,9 +91,27 @@ public class Project02StartingFiles {
         System.out.print(">>");
     }
     
-    private static void menuActions(String action){
-         if (action.equals("k")) {
-            
+    private static void menuActions(){
+        Scanner input = new Scanner(System.in);
+        String action = input.nextLine();
+        
+        if (action.equals("r")) {
+            System.out.println("hi");
+        }
+        if (action.equals("n")) {
+            System.out.println("hi");
+        }
+        if (action.equals("s")) {
+            System.out.println("hi");
+        }
+        if (action.equals("e")) {
+            System.out.println("hi");
+        }
+        if (action.equals("w")) {
+            System.out.println("hi");
+        }
+        if (action.equals("q")) {
+            System.out.println("The game has come to an end! Your final stats:");
         }
     }
 
