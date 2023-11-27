@@ -89,8 +89,10 @@ public class Project02StartingFiles {
                     //handleMove(Player, action);
                     break;
                 case 'q':
-                    //endGame();
-                    return;
+                    System.out.println("The game has come to an end! Your final stats:");
+                    System.out.println(stats.toString());
+                    System.out.println("Thanks for playing!");
+                    break;
                 default:
                     System.out.println("Invalid choice. Please choose again.");
 
@@ -99,14 +101,20 @@ public class Project02StartingFiles {
         }
     }
 
-    private static void displayMenu() {
+    private static void displayMenu(String action) {
         System.out.println("(r) Status Report");
         System.out.println("(n) Move 1 Space North ");
         System.out.println("(s) Move 1 Space South ");
         System.out.println("(e) Move 1 Space East ");
         System.out.println("(w) Move 1 Space West ");
         System.out.println("(q) quit Game ");
-        System.out.print(">> ");
+        System.out.print(">>");
+    }
+    
+    private static void menuActions(String action){
+         if (action.equals("k")) {
+            
+        }
     }
 
     private static void handleMove(Player player, char direction) {
@@ -169,12 +177,6 @@ public class Project02StartingFiles {
             }
         }
         System.out.println(player.toString());
-    }
-
-    private static void endGame(Player stats) {
-        System.out.println("The game has come to an end! Your final stats:");
-        System.out.println(stats.toString());
-        System.out.println("Thanks for playing!");
     }
 
 }
