@@ -29,6 +29,6 @@ public class Knight extends Player {
 
     @Override
     public String toString() {
-        return "Knight Status: Health: " + getHealth() + " Score: " + getScore() + "\nThe Knight's special move is '" + getSpecialMove() + "'";
+        return "Knight Status: Health: " + getHealth() + "\nScore: " + getScore() + "\nThe Knight's special move is '" + getSpecialMove() + "'";
     }
 }

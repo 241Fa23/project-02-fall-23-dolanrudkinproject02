@@ -29,6 +29,6 @@ public class Healer extends Player {
 
     @Override
     public String toString() {
-        return "Healer Status: Health: " + getHealth() + " Score: " + getScore() + "\nThe Healers special move is '" + getSpecialMove() + "'";
+        return "Healer Status: Health: " + getHealth() + "\nScore: " + getScore() + "\nThe Healers special move is '" + getSpecialMove() + "'";
     }
 }

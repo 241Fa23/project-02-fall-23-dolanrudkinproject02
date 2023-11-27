@@ -39,48 +39,60 @@ public class Project02StartingFiles {
             System.out.println("Welcome, Knight!");
 
             //this is the game play loop and you'll code the game in each one. If you can find a more compact way that would be nice but not necassary so just email it to me.
-            while (stats.get(0).getHealth() > 0) {
+            do {
                 System.out.println("What would you like to do?");
                 displayMenu();
-                menuActions();
+                menuActions(stats);
             }
-        } else if (character.equals("w")) {
-            stats.add(new Wizard(10, 0, "Cast a Spell!"));
-            System.out.println("Welcome, Wizard!");
+            while (stats.get(0).getHealth() > 0);
+                endGame(stats);
+            } 
+            else if (character.equals("w")) {
+                stats.add(new Wizard(10, 0, "Cast a Spell!"));
+                System.out.println("Welcome, Wizard!");
 
-            while (stats.get(0).getHealth() > 0) {
+            do{
                 System.out.println("What would you like to do?");
                 displayMenu();
-                menuActions();   
+                menuActions(stats);   
             }
+            while (stats.get(0).getHealth() > 0);
+                endGame(stats);
+            } 
             
-           
-            
-        } else if (character.equals("h")) {
-            stats.add(new Healer(10, 0, "Use Sleeping Powder!"));
-            System.out.println("Welcome, Healer!");
+            else if (character.equals("h")) {
+                stats.add(new Healer(10, 0, "Use Sleeping Powder!"));
+                System.out.println("Welcome, Healer!");
 
-            while (stats.get(0).getHealth() > 0) {
+            do {
                 System.out.println("What would you like to do?");
                 displayMenu();
-                String action = input.nextLine();
-                menuActions();
+                menuActions(stats);
+                break;
             }
-        } else if (character.equals("t")) {
+            while(stats.get(0).getHealth() > 0);
+                endGame(stats);
+        } 
+        else if (character.equals("t")) {
             stats.add(new Theif(10, 0, "Sneak By!"));
             System.out.println("Welcome, Theif!");
 
-            while (stats.get(0).getHealth() > 0) {
+            do {
                 System.out.println("What would you like to do?");
                 displayMenu();
-                menuActions();
+                menuActions(stats);
             }
-        } else {
+            while (stats.get(0).getHealth() > 0);
+            endGame(stats);
+        } 
+        else {
             System.out.println("No option was selected please try again.");
         }
         
     }
 
+    
+    
     private static void displayMenu() {
         System.out.println("(r) Status Report");
         System.out.println("(n) Move 1 Space North ");
@@ -91,12 +103,13 @@ public class Project02StartingFiles {
         System.out.print(">>");
     }
     
-    private static void menuActions(){
+    private static void menuActions(ArrayList stats){
         Scanner input = new Scanner(System.in);
         String action = input.nextLine();
         
         if (action.equals("r")) {
-            System.out.println("hi");
+            System.out.println(stats.toString());
+            System.out.println();
         }
         if (action.equals("n")) {
             System.out.println("hi");
@@ -111,7 +124,7 @@ public class Project02StartingFiles {
             System.out.println("hi");
         }
         if (action.equals("q")) {
-            System.out.println("The game has come to an end! Your final stats:");
+            endGame(stats);
         }
     }
 
@@ -121,7 +134,8 @@ public class Project02StartingFiles {
         //80% chance of a benign scene, 20% chance of a attack
         if (random.nextDouble() < 0.8) {
             handleBenignScene(player);
-        } else {
+        } 
+        else {
             handleAttack(player);
         }
     }
@@ -172,9 +186,15 @@ public class Project02StartingFiles {
             } else {
                 System.out.println("You lose the battle! Health decreased by 1.");
                 player.decreaseHealth(1);
-            }
+            } 
         }
         System.out.println(player.toString());
+        
+        }
+    public static void endGame(ArrayList stats){
+        System.out.println("The game has come to an end! Your final stats:");  
+        System.out.println(stats.toString());
+        System.out.println("Thanks for playing!");
     }
 
 }
