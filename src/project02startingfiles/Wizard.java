@@ -29,6 +29,6 @@ public class Wizard extends Player {
 
     @Override
     public String toString() {
-        return "Wizard Status: Health: " + getHealth() + "\nScore: " + getScore() + "\nThe Wizard's special move is '" + getSpecialMove() + "'";
+        return "Wizard Status: \nHealth: " + getHealth() + "\nScore: " + getScore() + "\nThe Wizard's special move is '" + getSpecialMove() + "'";
     }
 }

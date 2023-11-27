@@ -36,25 +36,31 @@ public class Project02StartingFiles {
         if (character.equals("k")) {
             //adds new character to array list so we can reference certain variables easily
             stats.add(new Knight(10, 0, "Slash with Sword!"));
+            System.out.println();
             System.out.println("Welcome, Knight!");
+            System.out.println();
 
             //this is the game play loop and you'll code the game in each one. If you can find a more compact way that would be nice but not necassary so just email it to me.
             do {
                 System.out.println("What would you like to do?");
                 displayMenu();
                 menuActions(stats);
+                break;
             }
             while (stats.get(0).getHealth() > 0);
                 endGame(stats);
             } 
             else if (character.equals("w")) {
                 stats.add(new Wizard(10, 0, "Cast a Spell!"));
+                System.out.println();
                 System.out.println("Welcome, Wizard!");
+                System.out.println();
 
             do{
                 System.out.println("What would you like to do?");
                 displayMenu();
                 menuActions(stats);   
+                break;
             }
             while (stats.get(0).getHealth() > 0);
                 endGame(stats);
@@ -62,7 +68,9 @@ public class Project02StartingFiles {
             
             else if (character.equals("h")) {
                 stats.add(new Healer(10, 0, "Use Sleeping Powder!"));
+                System.out.println();
                 System.out.println("Welcome, Healer!");
+                System.out.println();
 
             do {
                 System.out.println("What would you like to do?");
@@ -75,25 +83,30 @@ public class Project02StartingFiles {
         } 
         else if (character.equals("t")) {
             stats.add(new Theif(10, 0, "Sneak By!"));
+            System.out.println();
             System.out.println("Welcome, Theif!");
+            System.out.println();
 
             do {
                 System.out.println("What would you like to do?");
                 displayMenu();
                 menuActions(stats);
+                break;
             }
             while (stats.get(0).getHealth() > 0);
             endGame(stats);
+            
+            
         } 
         else {
             System.out.println("No option was selected please try again.");
         }
-        
+
     }
 
-    
-    
     private static void displayMenu() {
+        
+        System.out.println();
         System.out.println("(r) Status Report");
         System.out.println("(n) Move 1 Space North ");
         System.out.println("(s) Move 1 Space South ");
@@ -101,6 +114,7 @@ public class Project02StartingFiles {
         System.out.println("(w) Move 1 Space West ");
         System.out.println("(q) quit Game ");
         System.out.print(">>");
+
     }
     
     private static void menuActions(ArrayList stats){
@@ -108,7 +122,10 @@ public class Project02StartingFiles {
         String action = input.nextLine();
         
         if (action.equals("r")) {
-            System.out.println(stats.toString());
+            for (Object e : stats){
+                System.out.println();
+                System.out.println(e);
+            }
             System.out.println();
         }
         if (action.equals("n")) {
@@ -124,8 +141,13 @@ public class Project02StartingFiles {
             System.out.println("hi");
         }
         if (action.equals("q")) {
+            System.out.println();
             endGame(stats);
         }
+
+        System.out.println("{r} Status Report || {n}{s}{e}{w} Move one space North, SOuth, East,or  West || {q} Quit");
+        System.out.print(">> ");
+
     }
 
     private static void handleMove(Player player, char direction) {
@@ -150,8 +172,13 @@ public class Project02StartingFiles {
         System.out.println(scenes[index]);
         System.out.println("*******************");
 
+
         stats.increasedScore(stats.getScore() + 1);
         System.out.println(stats.toString());
+
+        stats.increasedScore(1);
+        System.out.println();
+
     }
 
     private static void handleAttack(Player player) {
@@ -178,8 +205,8 @@ public class Project02StartingFiles {
 
             //Simulate battle outcome
             if (random.nextDouble() < 0.6) {
-                //SOmething like this to get class?
-                //System.out.println(player.getClass().getSimpleName(); + " uses " + player.getSpecialMove() + "!");
+                //Something like this to get class?
+                System.out.println(player.toString());
                 player.useSpecialMove();
                 //need to get the class again + " wins! Score increased by 2."
                 player.increasedScore(2);
@@ -192,8 +219,11 @@ public class Project02StartingFiles {
         
         }
     public static void endGame(ArrayList stats){
+        
         System.out.println("The game has come to an end! Your final stats:");  
-        System.out.println(stats.toString());
+        for (Object e : stats){
+            System.out.println(e);
+        }
         System.out.println("Thanks for playing!");
     }
 

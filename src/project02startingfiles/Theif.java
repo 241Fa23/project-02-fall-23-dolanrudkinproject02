@@ -29,6 +29,6 @@ public class Theif extends Player {
 
     @Override
     public String toString() {
-        return "Thief Status: Health: " + getHealth() + "\nScore: " + getScore() + "\nThe Thief's special move is '" + getSpecialMove() + "'";
+        return "Thief Status: \nHealth: " + getHealth() + "\nScore: " + getScore() + "\nThe Thief's special move is '" + getSpecialMove() + "'";
     }
 }
