@@ -80,13 +80,14 @@ public class Project02StartingFiles {
 
             switch (action) {
                 case 'r':
-                    System.out.println(player.toString());
+                    System.out.println(stats);
+                    ;
                     break;
                 case 'n':
                 case 's':
                 case 'e':
                 case 'w':
-                    //handleMove(Player, action);
+                    handleMove(player, action);
                     break;
                 case 'q':
                     //endGame();
@@ -100,12 +101,7 @@ public class Project02StartingFiles {
     }
 
     private static void displayMenu() {
-        System.out.println("(r) Status Report");
-        System.out.println("(n) Move 1 Space North ");
-        System.out.println("(s) Move 1 Space South ");
-        System.out.println("(e) Move 1 Space East ");
-        System.out.println("(w) Move 1 Space West ");
-        System.out.println("(q) quit Game ");
+        System.out.println("{r} Status Report || {n}{s}{e}{w} Move one space North, SOuth, East,or  West || {q} Quit");
         System.out.print(">> ");
     }
 
@@ -131,7 +127,7 @@ public class Project02StartingFiles {
         System.out.println("*******************");
 
         player.increasedScore(1);
-        System.out.println(player.toString());
+        System.out.println();
     }
 
     private static void handleAttack(Player player) {
@@ -158,8 +154,8 @@ public class Project02StartingFiles {
 
             //Simulate battle outcome
             if (random.nextDouble() < 0.6) {
-                //SOmething like this to get class?
-                //System.out.println(player.getClass().getSimpleName(); + " uses " + player.getSpecialMove() + "!");
+                //Something like this to get class?
+                System.out.println(player.toString());
                 player.useSpecialMove();
                 //need to get the class again + " wins! Score increased by 2."
                 player.increasedScore(2);
