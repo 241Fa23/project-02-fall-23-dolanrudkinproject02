@@ -80,7 +80,7 @@ public class Project02StartingFiles {
 
             switch (action) {
                 case 'r':
-                    System.out.println(player.toString());
+                    System.out.println(stats.toString());
                     break;
                 case 'n':
                 case 's':
@@ -120,7 +120,7 @@ public class Project02StartingFiles {
         }
     }
 
-    private static void handleBenignScene(Player player) {
+    private static void handleBenignScene(Player stats) {
         Random random = new Random();
         //Possible benign scenes
         String[] scenes = {"Nothing here...", "Nice trees around here", "Interesting cottage there...", "Crossing a stream", "Cute Animals"};
@@ -130,8 +130,8 @@ public class Project02StartingFiles {
         System.out.println(scenes[index]);
         System.out.println("*******************");
 
-        player.increasedScore(1);
-        System.out.println(player.toString());
+        stats.increasedScore(stats.getScore() + 1);
+        System.out.println(stats.toString());
     }
 
     private static void handleAttack(Player player) {
@@ -171,9 +171,9 @@ public class Project02StartingFiles {
         System.out.println(player.toString());
     }
 
-    private static void endGame(Player player) {
+    private static void endGame(Player stats) {
         System.out.println("The game has come to an end! Your final stats:");
-        System.out.println(player.toString());
+        System.out.println(stats.toString());
         System.out.println("Thanks for playing!");
     }
 
