@@ -45,7 +45,7 @@ public class Project02StartingFiles {
                 System.out.println("What would you like to do?");
                 displayMenu();
                 menuActions(stats);
-            } while (stats.get(0).getHealth() > 0);
+            } while (stats.get(0).getHealth() > 0 && !isGameOver);
         } else if (character.equals("w")) {
             stats.add(new Wizard(10, 0, "Cast a Spell!"));
             System.out.println();
@@ -56,7 +56,7 @@ public class Project02StartingFiles {
                 System.out.println("What would you like to do?");
                 displayMenu();
                 menuActions(stats);
-            } while (stats.get(0).getHealth() > 0);
+            } while (stats.get(0).getHealth() > 0 && !isGameOver);
         } else if (character.equals("h")) {
             stats.add(new Healer(10, 0, "Use Sleeping Powder!"));
             System.out.println();
@@ -67,7 +67,7 @@ public class Project02StartingFiles {
                 System.out.println("What would you like to do?");
                 displayMenu();
                 menuActions(stats);
-            } while (stats.get(0).getHealth() > 0);
+            } while (stats.get(0).getHealth() > 0 && !isGameOver);
         } else if (character.equals("t")) {
             stats.add(new Theif(10, 0, "Sneak By!"));
             System.out.println();
@@ -78,7 +78,7 @@ public class Project02StartingFiles {
                 System.out.println("What would you like to do?");
                 displayMenu();
                 menuActions(stats);
-            } while (stats.get(0).getHealth() > 0);
+            } while (stats.get(0).getHealth() > 0 && !isGameOver);
 
         } else {
             System.out.println("No option was selected please try again.");
@@ -191,6 +191,9 @@ public class Project02StartingFiles {
             System.out.println(e);
         }
         System.out.println("Thanks for playing!");
+        System.exit(0);
+        isGameOver = true;
     }
+    private static boolean isGameOver = false;
 
 }
